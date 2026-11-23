@@ -5,7 +5,6 @@ import 'package:arcade_motoru/tenis.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const tenisId = 'oyun-tenis';
 
@@ -88,7 +87,7 @@ final tenisConfig = GameConfig(
   rules: tenisRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => tenisRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => tenisRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintRally(c, s, p, t);
